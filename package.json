@@ -1,0 +1,8 @@
+{
+  "name": "tensorflow-study",
+  "type": "module",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.4.0"
+  },
+  "devDependencies": {}
+}
