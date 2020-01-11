@@ -38,3 +38,6 @@ with tf.Session() as sess:
   # print('Hypothesis:', h)
   # print('Correct (Y):', c)
   print('Accuracy:', a)
+
+  assert(sess.run(predicted, feed_dict={X: [[-0.294118,0.487437,0.180328,-0.292929,0.,0.00149028,-0.53117,-0.0333333]]}) == [[0.]])
+  assert(sess.run(predicted, feed_dict={X: [[-0.882353,-0.105528,0.0819672,-0.535354,-0.777778,-0.162444,-0.923997,0]]}) == [[1.]])

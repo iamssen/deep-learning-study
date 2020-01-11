@@ -27,8 +27,16 @@ Y = tf.placeholder(tf.float32, shape=[None, 1])
 W = tf.Variable(tf.random_normal([2, 1]), name='weight')
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
+# H(X) = 1 / 1 + e ** -WtX
+# sigmoid: tf.div(1., 1. + tf.exp(tf.matmul(X, W) + b))
+# sigmoid: t => 1 / (1 + Math.exp(-t))
+# z = WX
+# H(X) = sigmoid(WX)
 hypothesis = tf.sigmoid(tf.matmul(X, W) + b)
 
+# if Y = 1 then (1 - Y) = 0
+# if Y = 0 then (1 - Y) = 1
+# ylog(H(x)) + (1 - y)log(1 - H(x))
 cost_fn = Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis)
 cost = -tf.reduce_mean(cost_fn)
 
